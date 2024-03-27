@@ -1,0 +1,20 @@
+#
+# Copyright 2024 SECO Mind Srl
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+[Unit]
+Description=TTYD
+# For development, keep restarting to wait for the platform to come online
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ttyd --writable TTYD_COMMAND
+Restart=on-failure
+# Avoid restarting too quickly
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

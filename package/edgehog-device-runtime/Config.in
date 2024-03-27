@@ -1,5 +1,5 @@
 #
-# Copyright 2022 SECO Mind Srl
+# Copyright 2022-2024 SECO Mind Srl
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -7,25 +7,23 @@
 config BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME
             bool "edgehog-device-runtime"
             depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
-            depends on BR2_PACKAGE_HOST_PROTOBUF_ARCH_SUPPORTS
             depends on BR2_PACKAGE_HAS_UDEV
             depends on BR2_PACKAGE_DBUS
-            depends on BR2_PACKAGE_SQLITE
             depends on BR2_FORTIFY_SOURCE_NONE
             select BR2_PACKAGE_EDGEHOG_ASTARTE_INTERFACE
             select BR2_PACKAGE_UPOWER
             select BR2_PACKAGE_CA_CERTIFICATES
             select BR2_PACKAGE_HOST_RUSTC
-            select BR2_PACKAGE_HOST_PROTOBUF
+            select BR2_PACKAGE_SQLITE
             default y
             help
-              This is a portable middleware written in Rust, that enables remote device management 
+              This is a portable middleware written in Rust, that enables remote device management
               on Linux-based systems.
 
               https://github.com/edgehog-device-manager/edgehog-device-runtime
 
 if BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME
-    choice 
+    choice
         prompt "Select an astarte library"
         default BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME_ASTARTE_LIBRARY_ASTARTE_DEVICE_SDK
         help
@@ -80,6 +78,14 @@ if BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME
         help
             Astarte identifies each device with a 128 bit Device ID which has to be unique within its Realm
 
+    config BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME_ASTARTE_IGNORE_SSL
+        bool "Ignore SSL errors from Astarte"
+        help
+            Ignore SSL errors from the Astarte API or MQTT broker.
+
+            This allows using a local Astarte instance or connectig to the API
+            through HTTP or using a self-signed certificate.
+
     config BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME_ASTARTE_MESSAGE_HUB_ENDPOINT
         string "Astarte Message Hub enpoint"
         default "http://[::1]:50051"
@@ -104,4 +110,17 @@ if BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME
         default ""
         help
             Image version that will be appended to the /etc/os-release file.
+
+    config BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME_FORWARDER
+        bool "Enable devide forwarder"
+        select BR2_PACKAGE_TTYD
+        help
+            Enable forwarder functionality on a device.
+
+	config BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME_FORWARDER_COMMAND
+		string "TTYD command"
+		default "login"
+		depends on BR2_PACKAGE_EDGEHOG_DEVICE_RUNTIME_FORWARDER
+		help
+			TTYD command to execute
 endif
