@@ -10,7 +10,7 @@
 #
 ################################################################################
 
-EDGEHOG_DEVICE_RUNTIME_VERSION = v0.8.0
+EDGEHOG_DEVICE_RUNTIME_VERSION = v0.8.1
 EDGEHOG_DEVICE_RUNTIME_SITE = https://github.com/edgehog-device-manager/edgehog-device-runtime
 EDGEHOG_DEVICE_RUNTIME_SITE_METHOD = git
 EDGEHOG_DEVICE_RUNTIME_LICENSE = Apache License 2.0
