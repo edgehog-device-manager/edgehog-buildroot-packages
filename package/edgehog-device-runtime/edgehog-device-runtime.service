@@ -17,6 +17,7 @@ Environment="RUST_LOG=debug"
 Environment="EDGEHOG_SYSTEM_SERIAL_NUMBER=EDGEHOG_SERIAL_NUMBER"
 Environment="EDGEHOG_SYSTEM_PART_NUMBER=EDGEHOG_PART_NUMBER"
 ExecStart=/usr/bin/edgehog-device-runtime -c /etc/edgehog/edgehog-device-runtime-config.toml
+NotifyAccess=exec
 Restart=on-failure
 # Avoid restarting too quickly
 RestartSec=2
