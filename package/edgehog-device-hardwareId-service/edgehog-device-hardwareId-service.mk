@@ -10,7 +10,7 @@
 #
 ################################################################################
 
-EDGEHOG_DEVICE_HARDWAREID_SERVICE_VERSION = main
+EDGEHOG_DEVICE_HARDWAREID_SERVICE_VERSION = v0.8.3
 EDGEHOG_DEVICE_HARDWAREID_SERVICE_SITE = https://github.com/edgehog-device-manager/edgehog-device-runtime
 EDGEHOG_DEVICE_HARDWAREID_SERVICE_SITE_METHOD = git
 EDGEHOG_DEVICE_HARDWAREID_SERVICE_LICENSE = Apache License 2.0

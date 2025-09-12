@@ -10,18 +10,16 @@
 #
 ################################################################################
 
-ASTARTE_MESSAGE_HUB_VERSION = v0.5.2
+ASTARTE_MESSAGE_HUB_VERSION = v0.8.0
 ASTARTE_MESSAGE_HUB_SITE = https://github.com/astarte-platform/astarte-message-hub
 ASTARTE_MESSAGE_HUB_SITE_METHOD = git
 ASTARTE_MESSAGE_HUB_LICENSE = Apache License 2.0
 ASTARTE_MESSAGE_HUB_LICENSE_FILES = COPYING
 
-ASTARTE_MESSAGE_HUB_DEPENDENCIES = host-protobuf
+ASTARTE_MESSAGE_HUB_DEPENDENCIES = host-sqlite host-openssl host-protobuf
 
 ASTARTE_MESSAGE_HUB_CARGO_ENV = \
-HOST_CC="x86_64-linux-gnu-gcc" \
-TARGET_CC="$(HOST_DIR)/bin/aarch64-linux-gcc" \
-TARGET_AR="$(HOST_DIR)/bin/aarch64-linux-ar"
+HOST_CC="$(HOSTCC)"
 
 ASTARTE_MESSAGE_HUB_CARGO_BUILD_OPTS=
 

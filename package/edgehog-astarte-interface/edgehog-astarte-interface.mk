@@ -10,7 +10,7 @@
 #
 ################################################################################
 
-EDGEHOG_ASTARTE_INTERFACE_VERSION = v0.7.0
+EDGEHOG_ASTARTE_INTERFACE_VERSION = v0.8.0
 EDGEHOG_ASTARTE_INTERFACE_SITE = https://github.com/edgehog-device-manager/edgehog-astarte-interfaces
 EDGEHOG_ASTARTE_INTERFACE_SITE_METHOD = git
 EDGEHOG_ASTARTE_INTERFACE_LICENSE = Apache License 2.0
